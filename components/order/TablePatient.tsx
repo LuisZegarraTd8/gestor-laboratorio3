@@ -27,7 +27,7 @@ const rows = [
 
 export default function TablePatient() {
   return (
-    <TableContainer component={Paper} sx={{boxShadow: 'none', backgroundColor: 'transparent', minHeight: 320 }}>
+    <TableContainer component={Paper} sx={{boxShadow: 'none', backgroundColor: 'transparent' }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead sx={{backgroundColor: '#D9D9D9', borderBottom: 2, borderBottomColor: '#BFBFBF'}}>
           <TableRow>
