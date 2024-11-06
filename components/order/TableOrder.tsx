@@ -26,7 +26,7 @@ const rows = [
 
 export default function TableOrder() {
   return (
-    <TableContainer component={Paper} sx={{boxShadow: 'none', backgroundColor: 'transparent', minHeight: 400 }}>
+    <TableContainer component={Paper} sx={{boxShadow: 'none', backgroundColor: 'transparent', minHeight: 32|0 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead sx={{backgroundColor: '#D9D9D9', borderBottom: 2, borderBottomColor: '#BFBFBF'}}>
           <TableRow>
