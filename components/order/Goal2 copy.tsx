@@ -12,7 +12,7 @@ import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
-import LabServices from "./LabServices";
+// import LabServices from "./LabServices";
 import PatientForm from "./PatientForm";
 import ReviewOrder from "./ReviewOrder";
 
@@ -21,7 +21,7 @@ const steps = ['Seleccionar Estudios', 'Rellenar Formulario', 'Confirmar Datos']
 function getStepContent(step: number) {
   switch (step) {
     case 0:
-      return <LabServices />;
+      return <h1>Hola</h1>;
     case 1:
       return <PatientForm />;
     case 2:
