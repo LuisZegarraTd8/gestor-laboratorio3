@@ -6,11 +6,9 @@ import { DocTypes } from '@/types';
 type ComboBoxProps = {
     options: DocTypes[]
     label: string
-    messageError: string
-    error: boolean
 }
 
-export default function ComboBoxSelect({options, label, messageError="", error=false }: ComboBoxProps) {
+export default function ComboBoxSelect({options, label }: ComboBoxProps) {
   return (
     <Autocomplete
       disablePortal

@@ -3,6 +3,7 @@ import MyAlertInfo from '@/components/alert/MyAlertInfo';
 import HeaderPatient from '@/components/order/HeaderPatient';
 import TablePatient from '@/components/order/TablePatient';
 import ButtonBlueDarkIcon from '@/components/parts/ButtonBlueDarkIcon';
+import FormNewPatient from '@/components/patient/FormNewPatient';
 import FormPatient from "@/components/patient/FormPatient";
 
 export default function SearchPatient() {
@@ -27,7 +28,8 @@ export default function SearchPatient() {
         </div> 
       </div>
       
-      {/* <FormPatient/> */}
+{/*       <FormPatient/> */}
+      <FormNewPatient/>
     </div>
   )
 }

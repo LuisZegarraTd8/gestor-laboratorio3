@@ -21,10 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} antialiased bg-gray-50`}
+        className={`${inter.className} antialiased bg-gray-50 h-screen`}
       >
-        <MyHeader/>
-        <main className="mt-6">
+        <header className="max-h-min">
+          <MyHeader/>
+        </header>
+        <main className="py-6 h-full fixed w-full">
           {children}
         </main>
       </body>

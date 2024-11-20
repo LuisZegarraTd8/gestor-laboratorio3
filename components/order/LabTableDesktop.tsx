@@ -1,9 +1,26 @@
-import * as React from 'react';
 import {
-  DataGrid,
-  GridColDef, GridRowSelectionModel, GridToolbar,
+    DataGrid, GridColDef, GridRowSelectionModel, GridToolbar,
+    GridToolbarContainer, GridToolbarDensitySelector, GridToolbarExport,
+    GridToolbarQuickFilter
 } from '@mui/x-data-grid';
 import LabCalculator, { LabItem } from '../services/lab-calculator';
+import { Box } from '@mui/material';
+import { esES } from '@mui/material/locale';
+
+function CustomToolbar() {
+        return (
+        <GridToolbarContainer>
+            <GridToolbarDensitySelector 
+            slotProps={{ tooltip: { title: 'Cambiar densidad' } }} 
+            />
+            <GridToolbarExport 
+            slotProps={{ tooltip: { title: 'Exportar datos' } }} 
+            />
+            <Box sx={{ flexGrow: 1 }} />
+            <GridToolbarQuickFilter /> {/* Agrega la barra de búsqueda */}
+        </GridToolbarContainer>
+        );
+    }
 
 const columns: GridColDef[] = [
   {
@@ -11,12 +28,14 @@ const columns: GridColDef[] = [
     headerName: 'Abreviatura',
     width: 120,
     editable: false,
+    disableColumnMenu: true,
   },
   {
     field: 'name',
     headerName: 'Estudio de Laboratorio',
     width: 380,
     editable: false,
+    disableColumnMenu: true,
   },
   {
     field: 'price',
@@ -24,6 +43,7 @@ const columns: GridColDef[] = [
     type: 'number',
     width: 110,
     editable: false,
+    disableColumnMenu: true,
   },
 ];
 
@@ -60,13 +80,12 @@ export default function LabTableDesktop(
                 }}
                 pageSizeOptions={[pageSize]}
                 checkboxSelection
-                slots={{ toolbar: GridToolbar }}
-                slotProps={{
-                    toolbar: {
-                    showQuickFilter: true,
-                    quickFilterProps: { debounceMs: debounceInMillis },
-                    },
-                }}
+                slots={{ toolbar: CustomToolbar }}
+                localeText={{
+                    toolbarDensity: 'Densidad',
+                    toolbarExport: 'Exportar',
+                    toolbarQuickFilterPlaceholder: 'Buscar', 
+                  }}
             />
         </div>
     );
