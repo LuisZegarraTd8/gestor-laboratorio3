@@ -1,7 +1,8 @@
 'use client'
 import React, { useState } from 'react';
-import { Stepper, Step, StepLabel, Button, Typography, Box } from '@mui/material';
-import SelectServicies from '../step/SelectServicies';
+import { Stepper, Step, StepLabel, Typography, Box } from '@mui/material';
+import SelectServiciesStep from '../step/SelectServiciesStep';
+import SelectPatientStep from '../step/SelectPatientStep';
 
 
 const steps = ['Seleccionar Estudios', 'Completar Datos Cliente', 'Revisar y Confirmar'];
@@ -31,41 +32,44 @@ export default function HStepper() {
         ))}
       </Stepper>
       {activeStep === steps.length ? (
-        <React.Fragment>
+        <>
           <Typography sx={{ mt: 2, mb: 1 }}>
             Todos los pasos completados. Orden generada exitosamente.
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Box sx={{ flex: '1 1 auto' }} />
-            <Button onClick={handleReset}>Nueva Orden</Button>
+            <button 
+              onClick={handleReset}
+              className="isolate relative z-10 w-60 text-center rounded border-2 border-azul-oscuro bg-azul-oscuro/85 px-6 py-3 text-sm font-medium uppercase text-white transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-azul-oscuro before:transition-transform before:duration-300 before:content-[''] hover:text-white before:hover:scale-x-100 active:brightness-110"
+            >Nueva Orden</button>
+            <Box sx={{ flex: '1 1 auto' }} />
           </Box>
-        </React.Fragment>
+        </>
       ) : (
-        <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>Paso {activeStep + 1}</Typography>
-          {/* Aquí puedo agregar el contenido de cada paso */}
-          {activeStep === 0 && 
-            <div>
-              <h3>Contenido del paso 1</h3>
-              <SelectServicies/>
-            </div>} 
-          {activeStep === 1 && <div>Contenido del paso 2</div>}
+        <div className='mt-4'>
+          {activeStep === 0 && <SelectServiciesStep/>}
+
+          {activeStep === 1 && <SelectPatientStep/> }
+
           {activeStep === 2 && <div>Contenido del paso 3</div>}
+
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-            <Button
+            <button
               color="inherit"
               disabled={activeStep === 0}
               onClick={handleBack}
-              sx={{ mr: 1 }}
+              className="isolate relative z-10 w-60 text-center rounded border-2 border-gris-oscuro bg-gris-oscuro/85 px-6 py-3 text-sm font-medium uppercase text-white transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-gris-oscuro before:transition-transform before:duration-300 before:content-[''] hover:text-white before:hover:scale-x-100 active:brightness-110 disabled:bg-gris-claro disabled:border-gris-claro disabled:before:bg-gris-claro disabled:active:brightness-100"
             >
-              Anterior
-            </Button>
+              Anterior Paso
+            </button>
             <Box sx={{ flex: '1 1 auto' }} />
-            <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? 'Confirmar' : 'Siguiente'}
-            </Button>
+            <button 
+              onClick={handleNext} 
+              className="isolate relative z-10 w-60 text-center rounded border-2 border-azul-oscuro bg-azul-oscuro/85 px-6 py-3 text-sm font-medium uppercase text-white transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-azul-oscuro before:transition-transform before:duration-300 before:content-[''] hover:text-white before:hover:scale-x-100 active:brightness-110">
+              {activeStep === steps.length - 1 ? 'Confirmar Orden' : 'Siguiente Paso'}
+            </button>
           </Box>
-        </React.Fragment>
+        </div>
       )}
     </div>
   );

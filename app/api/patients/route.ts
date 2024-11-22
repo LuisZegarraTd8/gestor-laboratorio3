@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import pacientes from '../../../data/patients.json'; 
+import clientes from '../../../data/clients.json'; 
 
 export async function GET() {
-  return NextResponse.json(pacientes);
+  return NextResponse.json(clientes);
 }

@@ -1,7 +1,7 @@
 'use client'
 import MyAlertInfo from '@/components/alert/MyAlertInfo';
-import HeaderOrder from '@/components/order/HeaderOrder';
-import TableOrder from '@/components/order/TableOrder';
+import HeaderOrder from '@/components/tables/HeaderOrder';
+import TableOrder from '@/components/tables/TableOrder';
 import ButtonBlueDarkIcon from '@/components/parts/ButtonBlueDarkIcon';
 
 

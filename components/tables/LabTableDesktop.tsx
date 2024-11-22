@@ -5,7 +5,6 @@ import {
 } from '@mui/x-data-grid';
 import LabCalculator, { LabItem } from '../services/lab-calculator';
 import { Box } from '@mui/material';
-import { esES } from '@mui/material/locale';
 
 function CustomToolbar() {
         return (
@@ -55,14 +54,36 @@ type LabTableInputParams = {
 export default function LabTableDesktop(
     { rowSelectionModel, setSelectedLabItems, setRowSelectionModel }: LabTableInputParams,
 ) {
-    const pageSize = 8;
-    const debounceInMillis = 500;
+    const pageSize = 7;
     return (
         <div className='min-w-fit h-fit'>
             <DataGrid
                 sx={{border: 'none',
+                    '& .container--top': {
+                        background: 'none',
+                    },
+                    '& .MuiDataGrid-container--top [role=row]': {
+                        backgroundColor: '#D9D9D9',
+                        borderBottomWidth: 2,
+                        borderBottomColor: '#BFBFBF',
+                        borderTopRightRadius: 6,
+                        borderTopLeftRadius: 6, 
+                    },
+                    '& .MuiDataGrid-columnHeaderTitle': {
+                        // backgroundColor: '#7BF3A4',
+                        fontWeight: 700,
+                    },
+                    '& .MuiDataGrid-toolbarContainer': {
+                        marginBottom: '8px',
+                    },
+                    '& .MuiDataGrid-overlayWrapper':{
+                        backgroundColor: 'red',
+                        height: 100,
+                    }
                 }}
+
                 rows={LabCalculator.getCurrentLabItems()}
+
                 onRowSelectionModelChange={(ids) => {
                     const selectedIDs = new Set(ids);
                     const selectedRowData: LabItem[] = LabCalculator.getCurrentLabItems().filter(labItem => selectedIDs.has(labItem.id));
@@ -71,6 +92,7 @@ export default function LabTableDesktop(
                 }}
                 columns={columns}
                 rowSelectionModel={rowSelectionModel}
+                keepNonExistentRowsSelected
                 initialState={{
                     pagination: {
                         paginationModel: {
@@ -80,11 +102,20 @@ export default function LabTableDesktop(
                 }}
                 pageSizeOptions={[pageSize]}
                 checkboxSelection
-                slots={{ toolbar: CustomToolbar }}
+                slots={{
+                    toolbar: CustomToolbar
+                 }}
                 localeText={{
                     toolbarDensity: 'Densidad',
                     toolbarExport: 'Exportar',
-                    toolbarQuickFilterPlaceholder: 'Buscar', 
+                    toolbarQuickFilterPlaceholder: 'Buscar',
+
+                    toolbarDensityCompact: 'Compacto',
+                    toolbarDensityStandard: 'Estándar',
+                    toolbarDensityComfortable: 'Cómodo',
+                    toolbarExportCSV: 'Exportar como CSV',
+                    toolbarExportPrint: 'Imprimir',
+                    noResultsOverlayLabel: 'No se encotraron resultados.'
                   }}
             />
         </div>

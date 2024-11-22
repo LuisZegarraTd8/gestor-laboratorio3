@@ -7,7 +7,7 @@ export default function Home() {
     const navItems = [
         {name: 'Nueva Orden', slug: 'new-order'},
         {name: 'Buscar Orden', slug: 'search-order'},
-        {name: 'Buscar Paciente', slug: 'search-patient'}];
+        {name: 'Buscar Cliente', slug: 'search-client'}];
 
   return (
     <div className="max-w-7xl flex flex-col mx-auto gap-6 h-full">

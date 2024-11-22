@@ -26,7 +26,7 @@ export default function RootLayout({
         <header className="max-h-min">
           <MyHeader/>
         </header>
-        <main className="py-6 h-full fixed w-full">
+        <main className="py-6 h-full static w-full">
           {children}
         </main>
       </body>

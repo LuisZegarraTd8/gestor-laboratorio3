@@ -8,7 +8,7 @@ const MyHeader = React.memo(function MyHeader() {
   const navItems = useMemo(() => ([
     { name: 'Nueva Orden', slug: 'new-order' },
     { name: 'Buscar Orden', slug: 'search-order' },
-    { name: 'Buscar Paciente', slug: 'search-patient' }
+    { name: 'Buscar Cliente', slug: 'search-client' }
   ]), []); // Memorizamos navItems
 
   return (

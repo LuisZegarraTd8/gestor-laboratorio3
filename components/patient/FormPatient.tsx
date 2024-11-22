@@ -1,7 +1,6 @@
 "use client"
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import ComboBoxSelect from '../parts/ComboBoxSelect';
 import { TextField, Button, Autocomplete } from '@mui/material';
 import { docTypes } from '@/data';
 import { FormPatientSchema } from '@/schema/documentTypeSchema';

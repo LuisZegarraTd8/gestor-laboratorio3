@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { TextField, MenuItem } from '@mui/material';
-import PatientForm from './PatientForm';
 import { Controller } from 'react-hook-form';
 import * as z from 'zod';
 
@@ -45,7 +44,7 @@ const SearchDocForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-row gap-3 items-start'>
-        <div className='w-96'>
+        <div className='w-[26rem]'>
           <Controller
             name="tipoDocumento"
             control={control}
@@ -78,7 +77,7 @@ const SearchDocForm: React.FC = () => {
         
         <input 
             type="submit"
-            value='Buscar Paciente'
+            value='Buscar Cliente'
             className="isolate h-fit mt-4 relative z-10 rounded border-2 border-azul-oscuro bg-azul-oscuro/85 px-4 py-4 text-sm font-medium uppercase text-white transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-azul-oscuro before:transition-transform before:duration-300 before:content-[''] hover:text-white before:hover:scale-x-100 active:brightness-110"
         />
       </div>
@@ -88,13 +87,13 @@ const SearchDocForm: React.FC = () => {
           // Mostrar formulario con los datos del paciente
           <>
             {/* <PatientForm paciente={paciente} /> */}
-            <p>Aqui esta el paciente</p>
+            <p>Aqui esta el cliente</p>
           </>
         ) : (
           // Mostrar formulario vacío
           <>
             {/* <PatientForm /> */}
-            <p>No existe el paciente</p>
+            <p>No existe el cliente</p>
           </>
         )
       )}

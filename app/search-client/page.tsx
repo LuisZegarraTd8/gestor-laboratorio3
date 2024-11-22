@@ -1,12 +1,12 @@
 'use client'
 import MyAlertInfo from '@/components/alert/MyAlertInfo';
-import HeaderPatient from '@/components/order/HeaderPatient';
-import TablePatient from '@/components/order/TablePatient';
+import HeaderPatient from '@/components/tables/HeaderPatient';
+import TablePatient from '@/components/tables/TablePatient';
 import ButtonBlueDarkIcon from '@/components/parts/ButtonBlueDarkIcon';
 import FormNewPatient from '@/components/patient/FormNewPatient';
 import FormPatient from "@/components/patient/FormPatient";
 
-export default function SearchPatient() {
+export default function SearchClient() {
   return (
     <div className="max-w-7xl flex flex-col mx-auto gap-6 h-auto">
       <h1 className='text-2xl font-bold text-negro-claro uppercase text-center'>Buscar Paciente | Lista de pacientes</h1>
